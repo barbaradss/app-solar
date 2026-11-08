@@ -1,0 +1,74 @@
+/* 1. Variáveis: cores definidas em um lugar só */
+:root {
+  --fundo: #f4f6f8;
+  --cartao: #ffffff;
+  --texto: #1f2933;
+  --texto-suave: #6b7785;
+  --destaque: #f59e0b; /* laranja solar */
+}
+
+/* 2. Reset: faz width e padding somarem de forma previsível */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* 3. Página inteira */
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+}
+
+/* 4. Topo */
+header {
+  background: var(--destaque);
+  color: #ffffff;
+  padding: 20px 16px;
+  text-align: center;
+}
+
+header p {
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+/* 5. Conteúdo centralizado, com largura máxima */
+main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* 6. Cartão: o "bloco branco" que repete na página */
+.cartao {
+  background: var(--cartao);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.cartao h2 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+/* 7. Os três números lado a lado (grid de 3 colunas iguais) */
+.resumo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  text-align: center;
+}
+
+.rotulo {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.valor {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 4px;
+}
