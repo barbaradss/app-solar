@@ -64,3 +64,49 @@ elTensaoMax.textContent = calcularTensaoMax(amostras).toFixed(1);
 
 const elData = document.getElementById("data");
 elData.textContent = new Date().toDateString("pt-BR");
+
+const potencias = amostras.map((a) => a.v * a.i);
+
+const tensoes = amostras.map((a) => a.v);
+
+//Trocar quando tiver os dados de verdade
+const horas = amostras.map((a, indice) => (6 + indice) + "h");
+// ["6h", "7h", "8h", ...]
+
+const canvas = document.getElementById("grafico");
+
+new Chart(canvas, {
+  type: "line",
+  data: {
+    labels: horas,
+    datasets: [
+      {
+        label: "Potência (W)",
+        data: potencias,
+        borderColor: "#f59e0b",
+        tension: 0.3,
+        yAxisID: "yPotencia",
+      },
+      {
+        label: "Tensão (V)",
+        data: tensoes,
+        borderColor: "#2563eb",
+        tension: 0.3,
+        yAxisID: "yTensao",
+      },
+    ],
+  },
+
+  options: {
+    responsive: true,
+    scales: {
+      yPotencia: { type: "linear", position: "left", title: { display: true, text: "W" } },
+      yTensao: {
+        type: "linear",
+        position: "right",
+        title: { display: true, text: "V" },
+        grid: { drawOnChartArea: false }, // evita duas grades sobrepostas
+      },
+    },
+  },
+});
