@@ -85,28 +85,11 @@ new Chart(canvas, {
         data: potencias,
         borderColor: "#f59e0b",
         tension: 0.3,
-        yAxisID: "yPotencia",
-      },
-      {
-        label: "Tensão (V)",
-        data: tensoes,
-        borderColor: "#2563eb",
-        tension: 0.3,
-        yAxisID: "yTensao",
       },
     ],
   },
 
   options: {
     responsive: true,
-    scales: {
-      yPotencia: { type: "linear", position: "left", title: { display: true, text: "W" } },
-      yTensao: {
-        type: "linear",
-        position: "right",
-        title: { display: true, text: "V" },
-        grid: { drawOnChartArea: false }, // evita duas grades sobrepostas
-      },
-    },
   },
 });
